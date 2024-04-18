@@ -260,17 +260,7 @@ defmodule ArangodbTest.Model.Personal do
 
     end
 
-    # defp validate_zip_code(changeset, field) do
-    #   require ErpHrWeb.Gettext
-    #   value = get_field(changeset, field) || ""
 
-    #   case Regex.match?(~r/^\d{5}$/, value) do
-    #     true -> changeset
-    #     false -> add_error(changeset, field, ErpHrWeb.Gettext.dgettext("errors", "must be a %{value}-digit number", value: "5"))
-    #     #HelloWeb.Gettext.dgettext("errors", "must be at least %{value}", value: "#{min_value}")
-    #     # Gettext.dgettext(ErpHrWeb.Gettext, "errors", "Zip code must be a 5-digit number"))
-    #   end
-    # end
 
     def required_fields_for_hiring() do
       ErpHr.Model.Personal.__schema__(:fields)
