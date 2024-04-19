@@ -53,7 +53,7 @@ defmodule ArangodbTest.MixProject do
       {:jason, "~> 1.2"},
       {:plug_cowboy, "~> 2.5"},
       {:arangox_ecto, "~> 1.3"},
-      {:arangox, "~> 0.6.0"}, # without this you get an error on Arangodb 3.10 and 3.11 !!!!
+      # {:arangox, "~> 0.6.0"}, # without this you get an error on Arangodb 3.10 and 3.11 !!!!
       # {:gun, "~> 2.1"},
       # {:mint, "~> 0.4.0"},
       {:httpoison, "~> 2.1"},
