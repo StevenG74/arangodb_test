@@ -16,5 +16,11 @@ defmodule ArangodbTest.Arangodb do
     |> ArangoXEcto.load(Personal)
   end
 
+  def update_personal_hiring(%Personal{} = personal, params) do
+    personal
+    |> Personal.changeset_hiring(params)
+    |> @repo.update()
+  end
+
 
 end

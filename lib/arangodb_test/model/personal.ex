@@ -100,13 +100,13 @@ defmodule ArangodbTest.Model.Personal do
       |> cast(params, [:name, :surname, :birth_date, :tax_code, :born_in, :private_mobile, :private_email, :private_address,
       :residence, :zip, :communications_language, :bank, :bank_branch, :iban, :swift])
       |> cast_embed(:declaration)
-      |> unique_constraint(:surname, name: "idx_1792236777377890304", message: "This employee already exists")
+      |> unique_constraint(:surname, name: "idx_1796755146182492160", message: "This employee already exists")
       # |> unique_constraint(:employee_name_index)
       |> validate_required(@hiring_required_fields)
       |> update_change(:tax_code, &String.upcase/1)
       |> validate_length(:tax_code, is: 16)
-      |> validate_fiscal_code(:tax_code)
-      |> maybe_force_birth_date()
+      # |> validate_fiscal_code(:tax_code)
+      # |> maybe_force_birth_date()
       # |> validate_zip_code(:zip)
       # |> unique_constraint(:name, name: "idx_1685137229031145472", message: "This employee already exists")
       |> remove_spaces(:iban)
@@ -263,7 +263,7 @@ defmodule ArangodbTest.Model.Personal do
 
 
     def required_fields_for_hiring() do
-      ErpHr.Model.Personal.__schema__(:fields)
+      ArangodbTest.Model.Personal.__schema__(:fields)
       |> Enum.filter(fn field -> field in @hiring_required_fields end)
     end
 end
